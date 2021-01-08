@@ -26,11 +26,30 @@
     {% if widget_list|length == 0 %}
     <h3>No Widgets Exist</h3>
     {% else %}
+    <table>
+
+        <thead>
+            <th>Description</th>
+            <th>Quantity</th>
+            <th></th>
+        </thead>
+
+        {% for widget in widget_list %}
+        <tbody>
+        <tr>
+            <td>{{widget.description}}</td>
+            <td>{{widget.quantity}}</td>
+            <td><a href="{% url 'delete_widget' widget.id %}">DELETE</a></td>
+        </tr>
+        </tbody>
+        {% endfor %}
+
+    </table>
 
     {% endif %}
     <hr>
     <h4>Add Widget</h4>
-    <form class='pure-form' method='post' action="{% url 'add_widget' %}">
+    <form class='pure-form' method='POST' action="{% url 'add_widget' %}">
         {% csrf_token %}
         <label for="description">Description:</label>
         <input type="text" name="description"></input>
@@ -38,7 +57,7 @@
         <label for="quantity">Quantity:</label>
         <input type="text" name="quantity"></input>
         <br>
-        <button class='pure-button'>Submit</button>
+        <button type="submit" class='pure-button'>Submit</button>
     </form>
 
 </body>
