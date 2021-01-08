@@ -1,1 +1,1 @@
-web: gunicorn widgetwickiness.wsgi
+web: gunicorn wackywidgets.wsgi
