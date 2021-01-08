@@ -3,7 +3,10 @@ from .models import Widget
 
 def index(request):
     widgets = Widget.objects.all() 
-    return render(request,'index.html', {'widget_list' : widgets})
+    widgetCount = 0
+    for widget in widgets:
+        widgetCount += widget.quantity
+    return render(request,'index.html', {'widget_list' : widgets, 'widgetCount' : widgetCount})
 
 def add_widget(request):
     print('asdfasdf')

@@ -15,14 +15,18 @@
     }
 
     label {
-    display: inline-block;
-    width: 100px;
-    text-align: right;
+        display: inline-block;
+        width: 100px;
+        text-align: right;
     }
     
     table {
-    margin: 2rem auto;
-}
+        margin: 2rem auto;
+    }
+
+    td {
+        
+    }
 
     table a {
         color: red;
@@ -35,7 +39,7 @@
     {% if widget_list|length == 0 %}
     <h3>No Widgets Exist</h3>
     {% else %}
-    <table>
+    <table class="pure-table pure-table-striped">
 
         <thead>
             <th>Description</th>
@@ -50,8 +54,13 @@
             <td>{{widget.quantity}}</td>
             <td><a href="{% url 'delete_widget' widget.id %}">DELETE</a></td>
         </tr>
-        </tbody>
         {% endfor %}
+        <tr>
+            <td>Total Widgets:</td>
+            <td>{{widgetCount}}</td>
+            <td></td>
+        </tr>
+        </tbody>
 
     </table>
 
