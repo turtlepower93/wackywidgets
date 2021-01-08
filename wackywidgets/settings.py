@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'wackywidgets.wsgi.application'
+WSGI_APPLICATION = 'widgetwickiness.wsgi.application'
 
 
 # Database
